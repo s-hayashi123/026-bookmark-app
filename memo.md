@@ -9,3 +9,8 @@ provider = "prisma-client-js"
 previewFeatures = ["driverAdapters"]
 
 }
+
+zfd と z.infer の違いは実際のデータを扱うかどうか。
+afd はフォームデータを使って、a.infer は型推論から型定義をするだけ
+
+フォームを受け取らずに即アクションの場合は throw new Error でエラーを投げて、フロントエンド側で catch することで UI に表示する
