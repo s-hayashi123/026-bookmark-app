@@ -14,14 +14,14 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import { createBookmark, updateBookmark } from "@/app/actions/bookmark";
-import { useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { Bookmark } from "@prisma/client";
 
 type BookmarkDialogProps = {
   mode: "create" | "edit";
-  bookmark: Bookmark;
+  bookmark?: Bookmark;
 };
 
 const initialState = {
@@ -47,7 +47,7 @@ function SubmitButton({ mode }: { mode: "create" | "edit" }) {
 export function BookmarkDialog({ mode, bookmark }: BookmarkDialogProps) {
   const [open, setOpen] = useState(false);
   const action = mode === "create" ? createBookmark : updateBookmark;
-  const [state, dispatch] = useFormState(action, initialState);
+  const [state, dispatch] = useActionState(action, initialState);
 
   useEffect(() => {
     if (state.message && !state.errors) {
