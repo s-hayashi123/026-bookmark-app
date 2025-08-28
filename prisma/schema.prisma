@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" // ★ PostgreSQLからSQLiteに変更
-  url      = env("TURSO_DATABASE_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Account {
