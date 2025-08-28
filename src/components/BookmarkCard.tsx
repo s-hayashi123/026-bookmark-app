@@ -37,7 +37,12 @@ export function BookmarkCard({
       <CardHeader>
         <CardTitle>{bookmark.title}</CardTitle>
         <CardDescription className="truncate">
-          <a href={bookmark.url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={bookmark.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             {bookmark.url}
           </a>
         </CardDescription>

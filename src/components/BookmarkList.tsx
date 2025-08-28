@@ -17,15 +17,17 @@ export function BookmarkList({ initialBookmarks }: BookmarkListProps) {
 
   if (optimisticBookmarks.length === 0) {
     return (
-      <div>
-        <h2>ブックマークがありません</h2>
-        <p>「新規作成」ボタンから最初のブックマークを追加してみましょう！</p>
+      <div className="text-center py-20 bg-gray-50 rounded-lg">
+        <h2 className="text-xl font-semibold">ブックマークがありません</h2>
+        <p className="text-muted-foreground mt-2">
+          「新規作成」ボタンから最初のブックマークを追加してみましょう！
+        </p>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {optimisticBookmarks.map((bookmark) => (
         <BookmarkCard
           key={bookmark.id}
